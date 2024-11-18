@@ -16,6 +16,9 @@ builder.Services.AddHealthChecks()
     .AddCheck<WorkshopDemoHealthCheck>(nameof(WorkshopDemoHealthCheck));
 builder.Services.AddSingleton<IFileService, FileService>();
 builder.Services.AddSingleton<IVersionService, VersionService>();
+builder.Configuration.AddAzureKeyVault(
+        new Uri($"https://kv-hmanner-{builder.Environment.EnvironmentName}.vault.azure.net/"),
+        new DefaultAzureCredential());
 
 var app = builder.Build();
 
