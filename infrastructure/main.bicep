@@ -8,6 +8,7 @@ targetScope = 'resourceGroup'
    params: {
      appName: 'workshop-dnazghbicep-hmanner-${environment}'
      location: 'centralus'
+     environment: environment
    }
  }
 
